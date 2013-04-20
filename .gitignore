@@ -11,3 +11,13 @@
 *.lai
 *.la
 *.a
+
+# IDE related file
+*.config
+*.includes
+*.files
+*.creator
+*.user
+
+# TOP SECRET(for the momment)
+compile.sh
