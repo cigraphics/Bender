@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Bender Brain</title>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script>
+        function sendUp() {
+            var up = $("#up").val();
+            var leftMotorDelay = $("#leftMotorDelay").val();
+            var rightMotorDelay = $("#rightMotorDelay").val();
+            $.get("/", { 
+                up : up,
+                leftMotorDelay : leftMotorDelay
+            },
+            function(data) {
+                console.log("Up");
+            });
+        }
+        function sendLeft() {
+            var left = $("#left").val();
+            var leftMotorDelay = $("#leftMotorDelay").val();
+            $.get("/", { 
+                left : left,
+                leftMotorDelay : leftMotorDelay
+            },
+            function(data) {
+                console.log("Left");
+            })
+        }
+        function sendRight() {
+            var right = $("#right").val();
+            var rightMotorDelay = $("#rightMotorDelay").val();
+            $.get("/", { 
+                right : right,
+                rightMotorDelay : rightMotorDelay
+            },
+            function(data) {
+                console.log("Right");
+            })
+        }
+        function sendDown() {
+            var down = $("#down").val();
+            var leftMotorDelay = $("#leftMotorDelay").val();
+            var rightMotorDelay = $("#rightMotorDelay").val();
+            $.get("/", { down:down },
+            function(data) {
+                console.log("Down");
+            })
+        }
+        </script>
+    </head>
+    <body>
+        <p>Welcom to Bender Brain</p>
+        <form metohd="post">
+            <input type="button" name="up" id="up" value="forward" onclick="sendUp();" /></br>
+            <input type="button" name="left" id="left" value="left" onclick="sendLeft();"/>
+            <input type="button" name="right" id="right" value="right" onclick="sendRight();"/></br>
+            <input type="button" name="down" id="down" value="backward" onclick="sendRight();"/></br>
+            <p>Left Motor Delay <input type="text" name="leftMotorDelay" id="leftMotorDelay" /></p>
+            <p>Right Motor Delay <input type="text" name="rightMotorDelay" id="rightMotorDelay" /></p>
+         </form>
+    </body>
+</html>
